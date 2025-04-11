@@ -1,0 +1,39 @@
+diff --git a/node_modules/@sentry/utils/build/cjs/version.js b/node_modules/@sentry/utils/build/cjs/version.js
+index 3a2881e..e8ed959 100644
+--- a/node_modules/@sentry/utils/build/cjs/version.js
++++ b/node_modules/@sentry/utils/build/cjs/version.js
+@@ -1,6 +1,6 @@
+ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+-const SDK_VERSION = '8.35.0';
++const SDK_VERSION = '8.35.0-cursor';
+ 
+ exports.SDK_VERSION = SDK_VERSION;
+ //# sourceMappingURL=version.js.map
+diff --git a/node_modules/@sentry/utils/build/esm/version.js b/node_modules/@sentry/utils/build/esm/version.js
+index 7704327..98f552f 100644
+--- a/node_modules/@sentry/utils/build/esm/version.js
++++ b/node_modules/@sentry/utils/build/esm/version.js
+@@ -1,4 +1,4 @@
+-const SDK_VERSION = '8.35.0';
++const SDK_VERSION = '8.35.0-cursor';
+ 
+ export { SDK_VERSION };
+ //# sourceMappingURL=version.js.map
+diff --git a/node_modules/@sentry/utils/build/types-ts3.8/version.d.ts b/node_modules/@sentry/utils/build/types-ts3.8/version.d.ts
+index 2fbd9a2..0ca1fd9 100644
+--- a/node_modules/@sentry/utils/build/types-ts3.8/version.d.ts
++++ b/node_modules/@sentry/utils/build/types-ts3.8/version.d.ts
+@@ -1,2 +1,2 @@
+-export declare const SDK_VERSION = "8.35.0";
++export declare const SDK_VERSION = "8.35.0-cursor";
+ //# sourceMappingURL=version.d.ts.map
+diff --git a/node_modules/@sentry/utils/build/types/version.d.ts b/node_modules/@sentry/utils/build/types/version.d.ts
+index 43b58eb..0f8fed4 100644
+--- a/node_modules/@sentry/utils/build/types/version.d.ts
++++ b/node_modules/@sentry/utils/build/types/version.d.ts
+@@ -1,2 +1,2 @@
+-export declare const SDK_VERSION = "8.35.0";
++export declare const SDK_VERSION = "8.35.0-cursor";
+ //# sourceMappingURL=version.d.ts.map
+\ No newline at end of file

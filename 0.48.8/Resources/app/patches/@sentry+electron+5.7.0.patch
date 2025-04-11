@@ -1,0 +1,30 @@
+diff --git a/node_modules/@sentry/electron/esm/main/sdk.js b/node_modules/@sentry/electron/esm/main/sdk.js
+index 4afb454..5057993 100644
+--- a/node_modules/@sentry/electron/esm/main/sdk.js
++++ b/node_modules/@sentry/electron/esm/main/sdk.js
+@@ -81,8 +81,8 @@ function init(userOptions) {
+         logger.enable();
+     }
+     removeRedundantIntegrations(options);
+-    configureIPC(options);
+-    configureUtilityProcessIPC();
++    // configureIPC(options);
++    // configureUtilityProcessIPC();
+     setNodeAsyncContextStrategy();
+     const scope = getCurrentScope();
+     scope.update(options.initialScope);
+diff --git a/node_modules/@sentry/electron/main/sdk.js b/node_modules/@sentry/electron/main/sdk.js
+index 4375923..62bc5d9 100644
+--- a/node_modules/@sentry/electron/main/sdk.js
++++ b/node_modules/@sentry/electron/main/sdk.js
+@@ -81,8 +81,8 @@ function init(userOptions) {
+         utils.logger.enable();
+     }
+     removeRedundantIntegrations(options);
+-    ipc$1.configureIPC(options);
+-    utilityProcesses.configureUtilityProcessIPC();
++    // ipc$1.configureIPC(options);
++    // utilityProcesses.configureUtilityProcessIPC();
+     node.setNodeAsyncContextStrategy();
+     const scope = node.getCurrentScope();
+     scope.update(options.initialScope);

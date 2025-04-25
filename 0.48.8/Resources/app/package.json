@@ -124,6 +124,7 @@
   },
   "dependencies": {
     "@anysphere/file-service": "^0.0.0-2d5e7a31",
+    "@babel/types": "^7.27.0",
     "@electron/asar": "^3.2.3",
     "@microsoft/1ds-core-js": "^3.2.13",
     "@microsoft/1ds-post-js": "^3.2.13",

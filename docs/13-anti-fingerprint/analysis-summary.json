@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "project": "cursor-reverse-engineering",
+    "analysis_rounds": 37,
+    "documents": 30,
+    "directions_covered": 7,
+    "version": "3.7.27",
+    "completed": "2026-06-18"
+  },
+  "authentication": {
+    "system": "workos",
+    "auth_domain": "authentication.cursor.sh",
+    "client_id": "KbZUR41cY7W6zRSdpSUJ7I7mLYBKOCmB",
+    "backend_url": "https://api2.cursor.sh",
+    "website_url": "https://cursor.com",
+    "token_endpoint": "POST https://api2.cursor.sh/oauth/token",
+    "grant_type": "refresh_token",
+    "token_type": "jwt_session",
+    "token_lifetime_days": 59,
+    "access_equals_refresh": true,
+    "poll_endpoint": "GET https://api2.cursor.sh/auth/poll",
+    "login_url_pattern": "https://cursor.com/loginDeepControl?challenge={challenge}&uuid={uuid}&mode={mode}"
+  },
+  "protocol": {
+    "name": "ConnectRPC",
+    "base_url": "https://api2.cursor.sh",
+    "content_type": "application/connect+json",
+    "framing": {
+      "flag_byte": "0x00 (uncompressed)",
+      "length": "uint32 big-endian",
+      "payload": "JSON body"
+    },
+    "services": {
+      "auth_service": "aiserver.v1.AuthService",
+      "dashboard_service": "aiserver.v1.DashboardService",
+      "chat_service": "aiserver.v1.ChatService",
+      "analytics_service": "aiserver.v1.AnalyticsService"
+    },
+    "chat_fields": 86,
+    "error_codes": 56
+  },
+  "device_fingerprinting": {
+    "machine_id": {
+      "type": "random_uuidv4",
+      "generation": "Xr() function (crypto.randomUUID)",
+      "storage_path": "~/.config/Cursor/machineid",
+      "storage_key": "storage.serviceMachineId"
+    },
+    "common_properties": {
+      "count": 33,
+      "key_fields": ["common.machineId", "common.macMachineId", "common.sqmId", "common.devDeviceId", "common.platform", "common.platformVersion", "common.nodeArch", "common.nodePlatform", "common.product"]
+    },
+    "session_id": {
+      "algorithm": "Xr() + Date.now()",
+      "x_sessions_id": "per-request UUID v4"
+    }
+  },
+  "custom_headers": {
+    "x_cursor_prefix": 18,
+    "others": 4,
+    "critical_headers": ["Authorization", "x-ghost-mode", "x-session-id", "x-cursor-client-version", "Content-Type"],
+    "ghost_mode_values": ["true", "false", "implicit-false"],
+    "checksum_algorithm": "ad1()"
+  },
+  "statsig": {
+    "client_key": "client-Bm4HJ0aDjXHQVsoACMREyLNxm5p6zzuzhO50MgtoT5D",
+    "proxy_url": "https://api3.cursor.sh/tev1/v1",
+    "sdk": "statsig-js-client v3.31.0",
+    "total_gates": 140
+  },
+  "sentry": {
+    "dsn_1": "https://0a7b82d23ca5f4635708bc8e9957e4bd@o4504648565915648.ingest.us.sentry.io/4509635758522369",
+    "dsn_2": "https://80ec2259ebfad12d8aa2afe6eb4f6dd5@metrics.cursor.sh/4508016051945472",
+    "capture_types": ["captureException", "captureMessage", "captureEvent", "captureFeedback", "captureSession"]
+  },
+  "anti_fraud": {
+    "rate_limiting": "token_bucket + circuit_breaker",
+    "retry_strategy": "exponential_backoff + jitter",
+    "retriable_errors": ["Unavailable", "Internal", "DeadlineExceeded"],
+    "detection_layers": 7,
+    "sandbox_policy_dimensions": 13,
+    "privacy_levels": 5,
+    "privacy_levels_enum": ["NO_STORAGE", "USAGE_DATA_TRAINING_ALLOWED", "USAGE_CODEBASE_TRAINING_ALLOWED", "NO_TRAINING", "UNSPECIFIED"]
+  },
+  "corrected_errors": [
+    {"old": "machineId = /etc/machine-id (hardware fingerprint)", "new": "machineId = random UUIDv4 written to ~/.config/Cursor/machineid"},
+    {"old": "authentication = Auth0", "new": "authentication = WorkOS"},
+    {"old": "auth domain = prod.authentication.cursor.sh", "new": "auth domain = authentication.cursor.sh"}
+  ],
+  "deliverables": {
+    "scripts": ["cursor_auth.py", "cursor_login_catcher.py", "simulate_cursor.py", "simulate_chat.js", "extract_cursor_token.sh", "catch_cursor_callback.sh"],
+    "proxy": "proxy/proxy.py",
+    "documents_total": 54,
+    "analysis_directory": "docs/13-anti-fingerprint/"
+  }
+}
